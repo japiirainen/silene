@@ -1,0 +1,38 @@
+name: silene
+version: 0.0.0
+description: type-theory elaboration
+maintainer: Joona Piirainen <joona.piirainen@gmail.com>
+github: japiirainen/silene
+
+ghc-options: -Wall
+
+default-extensions:
+  - LambdaCase
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - Silene
+  dependencies:
+    - base
+    - megaparsec
+    - text
+
+executable:
+  main: Main.hs
+  source-dirs: app
+  dependencies:
+    - base
+    - silene
+  ghc-options:
+    - -Wall
+
+tests:
+  tasty:
+    source-dirs: tasty
+    main: Main.hs
+    dependencies:
+      - base
+      - tasty
+      - tasty-hunit
+      - silene

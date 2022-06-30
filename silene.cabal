@@ -1,0 +1,66 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.6.
+--
+-- see: https://github.com/sol/hpack
+
+name:           silene
+version:        0.0.0
+description:    type-theory elaboration
+homepage:       https://github.com/japiirainen/silene#readme
+bug-reports:    https://github.com/japiirainen/silene/issues
+maintainer:     Joona Piirainen <joona.piirainen@gmail.com>
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/japiirainen/silene
+
+library
+  exposed-modules:
+      Silene
+  other-modules:
+      Paths_silene
+  hs-source-dirs:
+      src
+  default-extensions:
+      LambdaCase
+  ghc-options: -Wall
+  build-depends:
+      base
+    , megaparsec
+    , text
+  default-language: Haskell2010
+
+executable silene
+  main-is: Main.hs
+  other-modules:
+      Paths_silene
+  hs-source-dirs:
+      app
+  default-extensions:
+      LambdaCase
+  ghc-options: -Wall -Wall
+  build-depends:
+      base
+    , silene
+  default-language: Haskell2010
+
+test-suite tasty
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Paths_silene
+  hs-source-dirs:
+      tasty
+  default-extensions:
+      LambdaCase
+  ghc-options: -Wall
+  build-depends:
+      base
+    , silene
+    , tasty
+    , tasty-hunit
+  default-language: Haskell2010
