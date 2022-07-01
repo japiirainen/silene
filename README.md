@@ -20,6 +20,34 @@ Run the `silene` parser through a file and show the output.
 cabal run silene -- parse <filename>
 ```
 
+## Nix support
+
+You can alternatively use nix for dev environment and for building the project.
+
+Build:
+
+```sh
+nix build .
+```
+
+Run:
+
+```sh
+nix run .
+```
+
+Start Nix shell:
+
+```sh
+nix-shell
+```
+
+## Tips
+
+- Run `nix flake update` to update all flake inputs.
+- Run `./bin/hoogle` to start Hoogle with packages in your cabal file.
+- Run the application without installing: `nix run github:srid/haskell-template` (or `nix run .` from checkout)
+
 ## TODO for initial feature set
 
 - [x] Lexing
