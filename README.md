@@ -25,6 +25,7 @@ cabal run silene -- parse <filename>
 - [x] Lexing
 - [x] Parsing
 - [ ] Set up golden tests
+- [ ] Set up CI
 - [ ] Minimal dependent typechecking.
 - [ ] Evaluating to normal-form
 - [ ] REPL
