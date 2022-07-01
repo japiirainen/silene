@@ -1,5 +1,4 @@
-silene
-------
+## silene
 
 Haskell implementation for elaborating a dependently typed language.
 
@@ -13,10 +12,11 @@ interested in this topic. I got this idea from the [Grace](http:https://github.c
 In practice this means commenting the code heavily and keeping the structure as simple as
 possible, thus I encourange to browse the code.
 
-## TODO
+## TODO for initial feature set
 
-- [ ] Lexing
-- [ ] Parsing
+- [x] Lexing
+- [x] Parsing
+- [ ] Set up golden tests
 - [ ] Minimal dependent typechecking.
 - [ ] Evaluating to normal-form
 - [ ] REPL
