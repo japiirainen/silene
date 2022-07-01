@@ -12,6 +12,14 @@ interested in this topic. I got this idea from the [Grace](http:https://github.c
 In practice this means commenting the code heavily and keeping the structure as simple as
 possible, thus I encourange to browse the code.
 
+## Usage of silene
+
+Run the `silene` parser through a file and show the output.
+
+```sh
+cabal run silene -- parse <filename>
+```
+
 ## TODO for initial feature set
 
 - [x] Lexing
