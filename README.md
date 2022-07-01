@@ -29,3 +29,4 @@ cabal run silene -- parse <filename>
 - [ ] Minimal dependent typechecking.
 - [ ] Evaluating to normal-form
 - [ ] REPL
+- [ ] CLI using optparse-applicative
