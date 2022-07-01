@@ -26,6 +26,7 @@ cabal run silene -- parse <filename>
 - [x] Parsing
 - [ ] Set up golden tests
 - [ ] Set up CI
-- [ ] Minimal dependent typechecking.
+- [ ] Minimal dependent typechecking
 - [ ] Evaluating to normal-form
 - [ ] REPL
+- [ ] proper CLI using optparse-applicative
