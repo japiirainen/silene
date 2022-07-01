@@ -8,11 +8,14 @@ ghc-options: -Wall
 
 default-extensions:
   - LambdaCase
+  - OverloadedStrings
 
 library:
   source-dirs: src
   exposed-modules:
     - Silene
+    - Silene.Parser
+    - Silene.RawSyntax
   dependencies:
     - base
     - megaparsec
