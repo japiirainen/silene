@@ -96,8 +96,7 @@ pLet = do
   _ <- symbol "="
   t <- pRaw
   _ <- pKeyword "in"
-  u <- pRaw
-  pure $ RLet x a t u
+  RLet x a t <$> pRaw
 
 pRaw :: Parser Raw
 pRaw = withPos (pLam <|> pLet <|> Megaparsec.try pPi <|> funOrSpine)
