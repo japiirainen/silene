@@ -23,6 +23,7 @@ library
       Silene
       Silene.Parser
       Silene.RawSyntax
+      Silene.Syntax
   other-modules:
       Paths_silene
   hs-source-dirs:
@@ -30,6 +31,7 @@ library
   default-extensions:
       LambdaCase
       OverloadedStrings
+      DerivingVia
   ghc-options: -Wall
   build-depends:
       base
@@ -46,6 +48,7 @@ executable silene
   default-extensions:
       LambdaCase
       OverloadedStrings
+      DerivingVia
   ghc-options: -Wall -Wall
   build-depends:
       base
@@ -62,6 +65,7 @@ test-suite tasty
   default-extensions:
       LambdaCase
       OverloadedStrings
+      DerivingVia
   ghc-options: -Wall
   build-depends:
       base
