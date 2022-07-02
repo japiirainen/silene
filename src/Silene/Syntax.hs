@@ -3,7 +3,7 @@
 --   These indices were not present in the `RawSyntax`.
 --   If you are unfamiliar to what De Brujin Indices are here is a great intro.
 --   https://www.haskellforall.com/2021/08/namespaced-de-bruijn-indices.html
-module Silene.Syntax where
+module Silene.Syntax (Ix (..), Lvl (..), Type, Term (..)) where
 
 import Silene.RawSyntax (Name)
 

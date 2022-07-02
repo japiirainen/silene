@@ -1,5 +1,5 @@
 -- | TODO document this module
-module Silene.Value where
+module Silene.Value (Env, Closure (..), VType, Val (..)) where
 
 import Silene.RawSyntax (Name)
 import Silene.Syntax (Lvl, Term)
