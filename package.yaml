@@ -10,6 +10,7 @@ default-extensions:
   - LambdaCase
   - OverloadedStrings
   - DerivingVia
+  - StrictData
 
 library:
   source-dirs: src
@@ -18,6 +19,7 @@ library:
     - Silene.Parser
     - Silene.RawSyntax
     - Silene.Syntax
+    - Silene.Value
   dependencies:
     - base
     - megaparsec
