@@ -20,6 +20,7 @@ library:
     - Silene.RawSyntax
     - Silene.Syntax
     - Silene.Value
+    - Silene.Eval
   dependencies:
     - base
     - megaparsec
