@@ -9,6 +9,7 @@ ghc-options: -Wall
 default-extensions:
   - LambdaCase
   - OverloadedStrings
+  - DerivingVia
 
 library:
   source-dirs: src
@@ -16,6 +17,7 @@ library:
     - Silene
     - Silene.Parser
     - Silene.RawSyntax
+    - Silene.Syntax
   dependencies:
     - base
     - megaparsec
