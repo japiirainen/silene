@@ -7,6 +7,7 @@ module Silene.Eval where
 import Silene.Syntax (Ix (..), Lvl (..), Term (..))
 import Silene.Value (Closure (..), Env, Val (..))
 
+-- | Closure application
 ($$) :: Closure -> Val -> Val
 (Closure env t) $$ u = eval (u : env) t
 
@@ -34,3 +35,21 @@ quote l = \case
 
 nf :: Env -> Term -> Term
 nf env t = quote (Lvl (length env)) (eval env t)
+
+-- | Beta-eta conversion checking.
+--   This concept is explained quite well in this article.
+--   https://davidchristiansen.dk/tutorials/nbe/
+conv :: Lvl -> Val -> Val -> Bool
+conv l t u = case (t, u) of
+  (VU, VU) -> True
+  (VPi _ a b, VPi _ a' b') ->
+    conv l a a' && conv (l + 1) (b $$ VVar l) (b' $$ VVar l)
+  (VLam _ a, VLam _ a') ->
+    conv (l + 1) (a $$ VVar l) (a' $$ VVar l)
+  (VLam _ a, n) ->
+    conv (l + 1) (a $$ VVar l) (VApp n (VVar l))
+  (n, VLam _ a) ->
+    conv (l + 1) (VApp n (VVar l)) (a $$ VVar l)
+  (VVar x, VVar x') -> x == x'
+  (VApp a b, VApp a' b') -> conv l a a' && conv l b b'
+  _ -> False
