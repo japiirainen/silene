@@ -4,13 +4,18 @@ description: type-theory elaboration
 maintainer: Joona Piirainen <joona.piirainen@gmail.com>
 github: japiirainen/silene
 
-ghc-options: -Wall
+ghc-options:
+  - -Wall
+  - -Wno-name-shadowing
 
 default-extensions:
   - LambdaCase
   - OverloadedStrings
   - DerivingVia
   - StrictData
+  - FlexibleContexts
+  - GeneralizedNewtypeDeriving
+  - ViewPatterns
 
 library:
   source-dirs: src
@@ -21,10 +26,12 @@ library:
     - Silene.Syntax
     - Silene.Value
     - Silene.Eval
+    - Silene.Elab
   dependencies:
     - base
     - megaparsec
     - text
+    - mtl
 
 executable:
   main: Main.hs

@@ -55,7 +55,7 @@ nix-shell
 - [ ] Set up golden tests
 - [x] Set up CI
 - [ ] Nix support
-- [ ] Minimal dependent typechecking
-- [ ] Evaluating to normal-form
+- [x] Minimal dependent typechecking
+- [x] Evaluating to normal-form
 - [ ] REPL
 - [ ] proper CLI using optparse-applicative

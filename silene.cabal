@@ -25,6 +25,8 @@ library
       Silene.RawSyntax
       Silene.Syntax
       Silene.Value
+      Silene.Eval
+      Silene.Elab
   other-modules:
       Paths_silene
   hs-source-dirs:
@@ -34,10 +36,14 @@ library
       OverloadedStrings
       DerivingVia
       StrictData
-  ghc-options: -Wall
+      FlexibleContexts
+      GeneralizedNewtypeDeriving
+      ViewPatterns
+  ghc-options: -Wall -Wno-name-shadowing
   build-depends:
       base
     , megaparsec
+    , mtl
     , text
   default-language: Haskell2010
 
@@ -52,7 +58,10 @@ executable silene
       OverloadedStrings
       DerivingVia
       StrictData
-  ghc-options: -Wall -Wall
+      FlexibleContexts
+      GeneralizedNewtypeDeriving
+      ViewPatterns
+  ghc-options: -Wall -Wno-name-shadowing -Wall
   build-depends:
       base
     , silene
@@ -70,7 +79,10 @@ test-suite tasty
       OverloadedStrings
       DerivingVia
       StrictData
-  ghc-options: -Wall
+      FlexibleContexts
+      GeneralizedNewtypeDeriving
+      ViewPatterns
+  ghc-options: -Wall -Wno-name-shadowing
   build-depends:
       base
     , silene
