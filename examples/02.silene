@@ -1,0 +1,6 @@
+-- basic polymorphic functions
+let id : (A : U) -> A -> A
+      = λA x. x in
+let const : (A B : U) -> A -> B -> A
+      = λA B x y. x in
+id ((A B : U) -> A -> B -> A) const
