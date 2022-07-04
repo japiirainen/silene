@@ -52,9 +52,9 @@ nix-shell
 
 - [x] Lexing
 - [x] Parsing
-- [ ] Set up golden tests
+- [x] Set up golden tests
 - [x] Set up CI
-- [ ] Nix support
+- [x] Nix support
 - [x] Minimal dependent typechecking
 - [x] Evaluating to normal-form
 - [ ] REPL
