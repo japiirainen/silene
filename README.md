@@ -20,6 +20,12 @@ Run the `silene` parser through a file and show the output.
 cabal run silene -- parse <filename>
 ```
 
+You can also run the test suite.
+
+```sh
+cabal test tasty
+```
+
 ## Nix support
 
 You can alternatively use nix for dev environment and for building the project.
@@ -46,7 +52,7 @@ nix-shell
 
 - Run `nix flake update` to update all flake inputs.
 - Run `./bin/hoogle` to start Hoogle with packages in your cabal file.
-- Run the application without installing: `nix run github:srid/haskell-template` (or `nix run .` from checkout)
+- Run the application without installing: `nix run github:japiirainen/silene` (or `nix run .` from checkout)
 
 ## TODO for initial feature set
 
