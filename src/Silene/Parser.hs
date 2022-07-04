@@ -24,8 +24,8 @@ withPos p = RSrcPos <$> Megaparsec.getSourcePos <*> p
 lexeme :: Parser a -> Parser a
 lexeme = L.lexeme ws
 
--- | Symbol lexes a `symbol`. A `symbol` can be any sequence of characters excluding keywords.
---   Usually this means variables.
+-- | Symbol lexes a `symbol`. A `symbol` can be any sequence of characters
+--   excluding keywords. Usually this means variables.
 symbol :: Text -> Parser Text
 symbol = lexeme . C.string
 
@@ -104,8 +104,13 @@ pRaw = withPos (pLam <|> pLet <|> Megaparsec.try pPi <|> funOrSpine)
 pSrc :: Parser Raw
 pSrc = ws *> pRaw <* Megaparsec.eof
 
-parseText :: Text -> Either String Raw
-parseText src =
-  case Megaparsec.parse pSrc "(source)" src of
+parseText ::
+  FilePath ->
+  -- The file path of the source file. Used for error reporting.
+  Text ->
+  -- Source code to parse.
+  Either String Raw
+parseText fp src =
+  case Megaparsec.parse pSrc fp src of
     Left e -> Left $ Megaparsec.errorBundlePretty e
     Right t -> pure t

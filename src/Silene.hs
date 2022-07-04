@@ -42,7 +42,7 @@ main = do
     ["--help"] -> putStrLn help
     ["nf", fp] -> do
       content <- TIO.readFile fp
-      case Parser.parseText content of
+      case Parser.parseText fp content of
         Left err -> putStrLn err
         Right t ->
           case runExcept $
@@ -54,7 +54,7 @@ main = do
               print $ Eval.quote 0 a
     ["type", fp] -> do
       content <- TIO.readFile fp
-      case Parser.parseText content of
+      case Parser.parseText fp content of
         Left err -> putStrLn err
         Right t ->
           case runExcept $
@@ -63,5 +63,5 @@ main = do
             Right (_, a) -> print $ Eval.quote 0 a
     ["parse", fp] -> do
       content <- TIO.readFile fp
-      either putStrLn print (Parser.parseText content)
+      either putStrLn print (Parser.parseText fp content)
     _ -> putStrLn help

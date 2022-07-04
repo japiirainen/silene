@@ -26,9 +26,8 @@ fileToTestTree prefix = do
 
   content <- TIO.readFile input
 
-  case Parser.parseText content of
-    Left parseError -> do
-      print parseError
+  case Parser.parseText input content of
+    Left parseError ->
       pure
         ( Tasty.testGroup
             name

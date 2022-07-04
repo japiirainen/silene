@@ -1,4 +1,4 @@
-(source):3:18:
+tasty/data/error/type/applytoself-input.silene:3:18:
   |
 3 | let bar : U = id id in
   |                  ^
