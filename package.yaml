@@ -48,6 +48,13 @@ tests:
     main: Main.hs
     dependencies:
       - base
+      - silene
+      - directory
+      - filepath
+      - mtl
+      - megaparsec
       - tasty
       - tasty-hunit
-      - silene
+      - tasty-silver
+      - text
+      - safe-exceptions

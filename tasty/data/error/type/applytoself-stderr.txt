@@ -1,0 +1,14 @@
+(source):3:18:
+  |
+3 | let bar : U = id id in
+  |                  ^
+Type mismatch:
+
+expected type:
+
+  U
+
+inferred type:
+
+ (A : U) → A → A
+

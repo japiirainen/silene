@@ -1,4 +1,4 @@
-module Silene (main) where
+module Silene (main, displayError) where
 
 import Control.Monad.Except (runExcept)
 import qualified Data.Text as Text
@@ -23,7 +23,7 @@ help =
       "  type  <filename> : typecheck expression from a file, print type"
     ]
 
-displayError :: String -> Elab.ElabError -> IO ()
+displayError :: String -> Elab.ElabError -> String
 displayError
   file
   (Elab.ElabError (msg, SourcePos path (unPos -> linum) (unPos -> colnum))) =
@@ -31,10 +31,10 @@ displayError
       let lnum = show linum
           lpad = map (const ' ') lnum
       printf "%s:%d:%d:\n" path linum colnum
-      printf "%s |\n" lpad
-      printf "%s | %s\n" lnum (lines file !! (linum - 1))
-      printf "%s | %s\n" lpad (replicate (colnum - 1) ' ' ++ "^")
-      printf "%s\n" msg
+        <> printf "%s |\n" lpad
+        <> printf "%s | %s\n" lnum (lines file !! (linum - 1))
+        <> printf "%s | %s\n" lpad (replicate (colnum - 1) ' ' ++ "^")
+        <> printf "%s\n" msg
 
 main :: IO ()
 main = do
@@ -47,7 +47,7 @@ main = do
         Right t ->
           case runExcept $
             Elab.infer (Elab.emptyCtxt (initialPos (Text.unpack content))) t of
-            Left err -> displayError (Text.unpack content) err
+            Left err -> putStrLn $ displayError (Text.unpack content) err
             Right (t, a) -> do
               print $ Eval.nf [] t
               putStr "  :"
@@ -59,8 +59,8 @@ main = do
         Right t ->
           case runExcept $
             Elab.infer (Elab.emptyCtxt (initialPos (Text.unpack content))) t of
-            Left err -> displayError (Text.unpack content) err
-            Right (t, a) -> print $ Eval.quote 0 a
+            Left err -> putStrLn $ displayError (Text.unpack content) err
+            Right (_, a) -> print $ Eval.quote 0 a
     ["parse", fp] -> do
       content <- TIO.readFile fp
       either putStrLn print (Parser.parseText content)
